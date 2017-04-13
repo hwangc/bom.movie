@@ -13,6 +13,7 @@ public class APIClawling {
 
 	public static void main(String[] args) throws Exception {
 		// get the json data from kofic api
+		// Jiseon Added something
 
 		// Movie detail info
 		int movieCd = 20120001;
