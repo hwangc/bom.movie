@@ -2,3 +2,63 @@
 .nav li a.btn-yellow {
 	background-color: #fed136;
 }
+    
+section#register .section-heading {
+  color: black;
+}
+
+section#register .form-group {
+  margin-bottom: 25px;
+}
+
+section#register .form-group input {
+  padding: 20px;
+}
+
+section#register .form-group input.form-control {
+  height: auto;
+}
+
+section#register .form-control:focus {
+  border-color: #fed136;
+  box-shadow: none;
+}
+section#register ::-webkit-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #817b7b;
+}
+section#register :-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #817b7b;
+}
+section#register ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #817b7b;
+}
+section#register :-ms-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #817b7b;
+}
+section#register .text-danger {
+  color: #e74c3c;
+}
+
+section#register .success{
+  text-color: #808080;
+}
+
+section#register .btn-xl:hover {
+  color: #fff;
+  background-color: none;
+  border-color: none;
+}
