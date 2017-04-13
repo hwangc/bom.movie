@@ -1,3 +1,7 @@
+@CHARSET "EUC-KR";
+.nav li a.btn-yellow {
+	background-color: #fed136;
+}
     
 section#register .section-heading {
   color: black;
@@ -58,5 +62,3 @@ section#register .btn-xl:hover {
   background-color: none;
   border-color: none;
 }
-
-
