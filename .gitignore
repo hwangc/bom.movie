@@ -124,11 +124,11 @@ vignettes/*.pdf
 *.asp
 *.cer
 *.csr
-*.css
+#*.css
 *.htm
-*.html
-*.js
-*.jsp
+#*.html
+#*.js
+#*.jsp
 *.php
 *.rss
 *.xhtml
