@@ -8,6 +8,8 @@ import java.awt.image.BufferedImage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import chrome.NaverImg.whichOS;
 //import org.openqa.selenium.NoSuchElementException;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
 //import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,12 +45,7 @@ public class MovieImg {
 			bfImg = ImageIO.read(url);
 
 			if (MovieInfo.Data.getMovieCD() != 0) {
-				String path = MovieInfo.Data.workImagePath;
-				
-				if(NaverImg.AmIAtHome) {
-					path = MovieInfo.Data.homeImagePath;
-				}
-				
+				String path = MovieInfo.Data.getWhichPosterPath();
 				ImageIO.write(bfImg, "jpg", new File(path + MovieInfo.Data.getMovieCD() + ".jpg"));
 			}
 
@@ -104,10 +101,12 @@ public class MovieImg {
 	private static String GetChromeDriver() {
 		String driverLocation = null;
 		
-		if(!NaverImg.AmIAtHome) {
+		if((NaverImg.os == whichOS.WINDOWS)) {
 			driverLocation = "C:\\Projects\\Dropbox\\Development\\Java\\selenium\\chromedriver\\chromedriver.exe";
-		} else {			
+		} else if((NaverImg.os == whichOS.MAC)) {			
 			driverLocation = "chromedriver//chromedriver";
+		} else if((NaverImg.os == whichOS.LINUX)) {
+			driverLocation = "chromedriver//linux//chromedriver";
 		}
 		return driverLocation;
 	}

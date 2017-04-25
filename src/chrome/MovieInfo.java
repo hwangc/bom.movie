@@ -16,6 +16,8 @@ import java.sql.Statement;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import chrome.NaverImg.whichOS;
+
 public class MovieInfo {
 	
 	private static int movieCount = 5;
@@ -25,8 +27,6 @@ public class MovieInfo {
 		private static final String ClientSecret = "w5fz9r5yf4";
 		private static String APIUrl = "https://openapi.naver.com/v1/search/movie.json?";
 		private static String IMGUrl = "http://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode=";
-		protected static String workImagePath = "C:\\Projects\\poster\\";
-		protected static String homeImagePath = "img/";
 		private static String title = null;
 		private static int movieCD = 0;
 		private static String openDT = null;
@@ -42,6 +42,20 @@ public class MovieInfo {
 		private static String selectQuery = "SELECT MOVIECD,MOVIENM,OPENDT,DIRECTORS FROM NAVER WHERE ROWNUM<=? ORDER BY MOVIECD DESC";
 		private static String resumePointQuery = "SELECT MCODE FROM (SELECT MCODE FROM TB_IMAGE ORDER BY MCODE ASC) WHERE ROWNUM = 1";
 		private static String resumeSelectQuery = "SELECT MOVIECD,MOVIENM,OPENDT,DIRECTORS FROM NAVER WHERE MOVIECD < ? AND ROWNUM<= ? ORDER BY MOVIECD DESC";
+		
+		public static String getWhichPosterPath() {
+			String result = "";
+			
+			if(!(NaverImg.os == whichOS.WINDOWS)) {
+				result = "C:\\Projects\\poster\\";
+			} else if(!(NaverImg.os == whichOS.MAC)) {			
+				result = "img/";
+			} else if(!(NaverImg.os == whichOS.LINUX)) {
+				result = "/root/Documents/posters";
+			}
+			
+			return result;
+		}
 		
 		public static String getResultQueryLink() {
 			return resultQueryLink;
