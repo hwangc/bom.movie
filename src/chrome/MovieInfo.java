@@ -20,7 +20,7 @@ import chrome.NaverImg.whichOS;
 
 public class MovieInfo {
 	
-	private static int movieCount = 5;
+	private static int movieCount = 40000;
 	
 	protected static class Data {
 		private static final String ClientID = "TKJl4cSjK1WjO5Z64dan";
@@ -46,12 +46,12 @@ public class MovieInfo {
 		public static String getWhichPosterPath() {
 			String result = "";
 			
-			if(!(NaverImg.os == whichOS.WINDOWS)) {
+			if((NaverImg.os == whichOS.WINDOWS)) {
 				result = "C:\\Projects\\poster\\";
-			} else if(!(NaverImg.os == whichOS.MAC)) {			
+			} else if((NaverImg.os == whichOS.MAC)) {			
 				result = "img/";
-			} else if(!(NaverImg.os == whichOS.LINUX)) {
-				result = "/root/Documents/posters";
+			} else if((NaverImg.os == whichOS.LINUX)) {
+				result = "/home/bom_david/Documents/posters/";
 			}
 			
 			return result;

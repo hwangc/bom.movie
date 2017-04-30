@@ -2,17 +2,20 @@ package chrome;
 
 import java.io.File;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
 import javax.imageio.ImageIO;
 import org.openqa.selenium.By;
 import java.awt.image.BufferedImage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 
 import chrome.NaverImg.whichOS;
-//import org.openqa.selenium.NoSuchElementException;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MovieImg {
 	
@@ -26,17 +29,24 @@ public class MovieImg {
 		// Create a new instance of the Chrome driver
 		WebDriver driver = null;
 		WebElement element = null;
+		WebDriverWait wait = null;
+		long waitTime = 2;
 		
 		try
 		{
 			driver = new ChromeDriver();
 			driver.get(MovieInfo.Data.getIMGUrl() + MovieInfo.Data.getResultQueryMovieCD());
+			wait = new WebDriverWait(driver,waitTime);
+			
 			// Find the text input element by its name
 			try {
-				
-				element = driver.findElement(By.id(imgID));
+				driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+				if(!driver.findElements(By.id(imgID)).isEmpty()) {
+					element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(imgID)));
+				} else {
+					throw new ElementNotFoundException(imgID, imgID, imgID);
+				}
 			} catch (Exception e) {
-
 				result = false;
 				return result;
 			}
@@ -53,7 +63,6 @@ public class MovieImg {
 			e.printStackTrace();
 		} finally{
 			driver.close();
-			Thread.sleep(1000); // modify for effect
 			driver.quit();
 		}
 		
