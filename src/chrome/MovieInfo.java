@@ -23,8 +23,8 @@ public class MovieInfo {
 	private static int movieCount = 40000;
 	
 	protected static class Data {
-		private static final String ClientID = "TKJl4cSjK1WjO5Z64dan";
-		private static final String ClientSecret = "w5fz9r5yf4";
+		private static final String ClientID = "naver client id";
+		private static final String ClientSecret = "naver client secret";
 		private static String APIUrl = "https://openapi.naver.com/v1/search/movie.json?";
 		private static String IMGUrl = "http://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode=";
 		private static String title = null;
